@@ -9,7 +9,9 @@
 }
 
 .content {
-  height: 100vh;
+  height: 85vh;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 .resgister-page {
@@ -43,8 +45,8 @@
 }
 
 .active-icon {
-  color: black;
+  color: black !important;
 }
 .inactive-icon {
-  color: gray;
+  color: gray !important;
 }

@@ -15,7 +15,7 @@ const transactionSchema = new mongoose.Schema(
             required: [true, 'Category is requried'],
         },
         date: {
-            type: String,
+            type: Date,
             required: [true, , 'Date is required'],
         },
         refrence: {
