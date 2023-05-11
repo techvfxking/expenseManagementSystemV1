@@ -6,9 +6,17 @@ const transactionSchema = new mongoose.Schema(
             type: Number,
             required: [true, 'Amount is required'],
         },
-        categrory: {
+        type: {
+            type: String,
+            required: [true, 'Type is required'],
+        },
+        category: {
             type: String,
             required: [true, 'Category is requried'],
+        },
+        date: {
+            type: String,
+            required: [true, , 'Date is required'],
         },
         refrence: {
             type: String,
@@ -17,9 +25,9 @@ const transactionSchema = new mongoose.Schema(
             type: String,
             required: [true, 'description is required'],
         },
-        date: {
+        userid: {
             type: String,
-            required: [true, , 'Date is required'],
+            required: true,
         },
     },
     { timestamps: true }
