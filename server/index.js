@@ -3,7 +3,9 @@ import colors from 'colors';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
 import morgan from 'morgan';
-import connectDb  from './config/connectDb.js';
+import connectDb from './config/connectDb.js';
+import userRouter  from './routes/userRoute.js';
+import transactionRouter from './routes/transactionRoutes.js';
 
 dotenv.config();
 
@@ -24,6 +26,11 @@ app.get('/', async (req, res) => {
 
     })
 });
+
+app.use('/api/v1/users', userRouter);
+
+app.use('/api/v1/transactions', transactionRouter);
+
 
 const PORT = 8080 || process.env.PORT;
 app.listen(PORT, () => console.log(`Server has started on http://localhost:${PORT}`.bgMagenta));

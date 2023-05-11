@@ -1,12 +1,39 @@
 import './App.css'
+import HomePage from './pages/HomePage'
+import LoginPage from './pages/LoginPage'
+import { Routes, Route, Navigate } from "react-router-dom";
+import Register from './pages/Register';
+import axios from 'axios';
+import { Toaster } from 'react-hot-toast';
+
+axios.defaults.baseURL = 'http://localhost:8080/api/v1'
 
 function App() {
 
   return (
-    <section className='container-fluid'>
-      <h1 className='text-center'>Hello<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"></link></h1>
-    </section>
+    <>
+      <Toaster position='top-center' toastOptions={{ duration: 2000 }} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <ProtectedRoutes>
+              <HomePage />
+            </ProtectedRoutes>
+          }
+        />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </>
   )
+}
+export function ProtectedRoutes(props) {
+  if (localStorage.getItem("user")) {
+    return props.children;
+  } else {
+    return <Navigate to="/login" />;
+  }
 }
 
 export default App
