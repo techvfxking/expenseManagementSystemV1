@@ -21,7 +21,20 @@ const Register = () => {
             toast.error("something went wrong");
         }
     };
-
+    const layout = {
+        labelCol: {
+            span: 8,
+        },
+        wrapperCol: {
+            span: 25,
+        },
+    };
+    const tailLayout = {
+        wrapperCol: {
+            offset: 8,
+            span: 16,
+        },
+    };
     //prevent for login user
     useEffect(() => {
         if (localStorage.getItem("user")) {
@@ -30,10 +43,10 @@ const Register = () => {
     }, [navigate]);
     return (
         <>
-            <div className="resgister-page ">
+            <div className="resgister-page">
                 {loading && <Spinner />}
                 <Form layout="vertical" onFinish={submitHandler}>
-                    <h1>Register Form</h1>
+                    <h1>Register / Sign Up</h1>
                     <Form.Item label="Name" name="name">
                         <Input />
                     </Form.Item>
@@ -41,11 +54,11 @@ const Register = () => {
                         <Input type="email" />
                     </Form.Item>
                     <Form.Item label="Password" name="password">
-                        <Input type="password" />
+                        <Input.Password/>
                     </Form.Item>
                     <div className="d-flex justify-content-between">
-                        <Link to="/login">Already Register ? Cleck Here to login</Link>
-                        <button className="btn btn-primary">Resgiter</button>
+                        <Link to="/login">Already Register ? <br />Cleck Here to login</Link>
+                        <button className="btn btn-primary">Register</button>
                     </div>
                 </Form>
             </div>
