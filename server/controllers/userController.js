@@ -15,6 +15,7 @@ const loginController = async (req, res) => {
         });
 
     } catch (error) {
+        console.log(error)
         res.statu(400).json({
             success: false,
             data: error
@@ -31,6 +32,7 @@ const registerController = async (req, res) => {
             data: newUser
         })
     } catch (error) {
+        console.log(error)
         res.statu(400).json({
             success: false,
             data: error
