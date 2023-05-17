@@ -6,7 +6,7 @@ import Register from './pages/Register';
 import axios from 'axios';
 import { Toaster } from 'react-hot-toast';
 
-axios.defaults.baseURL = 'https://expensemanagementv1.onrender.com/'
+axios.defaults.baseURL = 'https://expensemanagementv1.onrender.com/api/v1'
 
 function App() {
 
